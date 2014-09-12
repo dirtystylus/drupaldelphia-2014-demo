@@ -59,14 +59,6 @@ function STARTERKIT_preprocess_maintenance_page(&$variables, $hook) {
 function drupalajax_preprocess_html(&$variables, $hook) {
   drupal_add_css('http://fonts.googleapis.com/css?family=Lato:700', array('type' => 'external'));
   drupal_add_css('http://fonts.googleapis.com/css?family=Merriweather:400italic,400', array('type' => 'external'));
-  
-  if (isset($_GET['is_ajax']) && $_GET['is_ajax'] == 1) {
-    $variables['theme_hook_suggestions'][] = 'html__embed';
-  }
-
-  // The body tag's classes are controlled by the $classes_array variable. To
-  // remove a class from $classes_array, use array_diff().
-  //$variables['classes_array'] = array_diff($variables['classes_array'], array('class-to-remove'));
 }
 
 /**
@@ -78,9 +70,6 @@ function drupalajax_preprocess_html(&$variables, $hook) {
  *   The name of the template being rendered ("page" in this case.)
  */
 function drupalajax_preprocess_page(&$variables, $hook) {
-  if (isset($_GET['is_ajax']) && $_GET['is_ajax'] == 1) {
-  	$variables['theme_hook_suggestions'][] = 'page__embed';
-	}
 }
 
 /**
@@ -92,16 +81,6 @@ function drupalajax_preprocess_page(&$variables, $hook) {
  *   The name of the template being rendered ("node" in this case.)
  */
 function drupalajax_preprocess_node(&$variables, $hook) {
-  if (isset($_GET['is_ajax']) && $_GET['is_ajax'] == 1) {
-    $variables['is_ajax'] = 1;
-  }
-
-  // Optionally, run node-type-specific preprocess functions, like
-  // STARTERKIT_preprocess_node_page() or STARTERKIT_preprocess_node_story().
-  $function = __FUNCTION__ . '_' . $variables['node']->type;
-  if (function_exists($function)) {
-    $function($variables, $hook);
-  }
 }
 
 /**

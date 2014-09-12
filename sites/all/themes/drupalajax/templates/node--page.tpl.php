@@ -83,11 +83,13 @@
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
 
   <?php print $user_picture; ?>
-
+  
+  <?php if (!$page || ( isset($variables['is_ajax']) && $variables['is_ajax'] == 1)): ?>
   <?php print render($title_prefix); ?>
     <h2<?php print $title_attributes; ?>><a href="<?php print $node_url; ?>"><?php print $title; ?></a></h2>
     <?php print render($title_suffix); ?>
-
+  <?php endif; ?>  
+  
   <div class="content"<?php print $content_attributes; ?>>
     <?php
       // We hide the comments and links now so that we can render them later.
