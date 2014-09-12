@@ -29,5 +29,33 @@ Drupal.behaviors.load_article = {
   }
 };
 
+Drupal.behaviors.load_view = {
+  attach: function(context, settings) {
+    $( "a[data-views]" ).once( "viewajax", function() {
+      $( "a[data-views]" ).unbind().bind( "click", function() {
+        $.ajax({
+         url: '/views/ajax',
+         type: 'post',
+         data: {
+           view_name: 'articles',
+           view_display_id: 'page', //your display id
+         },
+         dataType: 'json',
+         success: function (response) {
+           if (response[1] !== undefined) {
+             var viewHtml = response[1].data;
+             console.log(viewHtml);
+             $('.view-destination').html(viewHtml);
+           }
+         }
+       });
+       
+       return false;
+      } 
+    );
+    });
+  }
+};
+
 
 })(jQuery, Drupal, this, this.document);
