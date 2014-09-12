@@ -1,0 +1,26 @@
+header {
+  margin: 2em 0;
+  padding: 0 0 2em 0;
+  border-bottom: 5px solid $blue-light;
+}
+
+
+.header__site-name {
+  font-family: Lato, Helvetica, Arial, sans-serif;
+  font-size: 2em;
+  text-transform: uppercase;
+  color: $blue-light;
+}
+
+.header__site-link {
+  &:link,
+  &:visited {
+    color: $blue-light;
+    text-decoration: none;
+  }
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
+}

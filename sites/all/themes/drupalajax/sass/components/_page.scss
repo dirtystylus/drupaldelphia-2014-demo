@@ -1,0 +1,39 @@
+body {
+  background-color: #f7f7f7;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+img {
+  width: 100%;
+  max-width: 100%;
+}
+
+#main {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.node-title a {
+  font-family: Lato, Helvetica, Arial, sans-serif;
+  color: $blue-light;
+  text-decoration: none;
+  border-bottom: 1px dotted $blue-dark;
+}
+
+.field-name-body a {
+  text-decoration: none;
+  color: $blue-dark;
+  border-bottom: 1px dotted $blue-dark;
+}
+
+.view-destination-header {
+  font-family: Lato, Helvetica, Arial, sans-serif;
+  border-bottom: 1px solid #242424;
+}
+
+.view-destination {
+  margin: 0 2em;
+}
